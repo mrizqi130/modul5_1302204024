@@ -21,6 +21,18 @@ namespace modul5_1302204024
             
             a.AddVideos(d);
             a.PrintAllVideoPlayCount();
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            SayaTubeVideo e = new SayaTubeVideo(null);
+            
+
+            for (int i = 0; i < 65538000; i++)
+            {
+                e.IncreasePlayCount(i);
+            }
+
         }
     }
 

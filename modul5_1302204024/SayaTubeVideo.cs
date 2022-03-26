@@ -19,7 +19,7 @@ namespace modul5_1302204024
 
         public SayaTubeVideo(string a)
         {
-            //Debug.Assert(a != null && a.Length < 101);
+            Debug.Assert(a != null && a.Length < 201);
             Random b = new Random();
 
             this.id = b.Next(10000, 100000);//in range 10000-100000
@@ -29,16 +29,15 @@ namespace modul5_1302204024
 
         public void IncreasePlayCount(int a)
         {
-            //Debug.Assert(a <= 10000000);
-            //try
-            //{
-            //    playCount = checked(playCount + a);
-            //}
-            //catch (System.OverflowException e)
-            //{
-            //    Console.WriteLine("UNCHECKED and CAUGHT:  " + e.ToString());
-            //}
-            playCount = checked(playCount + a);
+            Debug.Assert(a <= 25000000 && a >-1);
+            try
+            {
+                playCount = checked(playCount + a);
+            }
+            catch (System.OverflowException e)
+            {
+                Console.WriteLine("UNCHECKED and CAUGHT:  " + e.ToString());
+            }
         }
 
         public int getPlay()

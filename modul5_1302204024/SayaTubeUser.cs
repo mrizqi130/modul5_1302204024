@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace modul5_1302204024
 
         public SayaTubeUser(String a)
         {
+            Debug.Assert(a != null && a.Length < 101);
             Random c = new Random();
             this.id = c.Next(10000, 100000);//in range 10000-100000
             this.uploadedVideos = new List<SayaTubeVideo>();
@@ -34,14 +36,17 @@ namespace modul5_1302204024
 
         public void AddVideos(SayaTubeVideo a)
         {
+            Debug.Assert(a != null);
+            
+            Debug.Assert(a.getPlay()<= 2147483647);
             uploadedVideos.Add(a);
         }
 
         public void PrintAllVideoPlayCount()
         {
-            int i = 0;
+            
             Console.WriteLine("User :" + this.username);
-            foreach (SayaTubeVideo video in this.uploadedVideos)
+            for (int i=0;i < 8;i++)
             {
                 Console.WriteLine("Video " + (i + 1) + " judul : " + this.uploadedVideos[i].getTitle());
                 i++;
